@@ -1,0 +1,10 @@
+Sosiaalinen kirjautuminen full stack sovelluksessa:
+
+1. kehittäjä kirjautuu pilvipalvelun sivuille ja luo login aplikaation
+2. omasta frontend sovelluksesta otetaan yhteys login aplikaatioon
+3. kun käyttäjä kirjautuu sisään palauttaa login aplikaatio käyttäjän profiilitiedot ja id:n
+4. id lähetetään backend sovellukselle
+5. backend sovellus tunnistaa käyttäjän id:n avulla login aplitkaatiossa joka palauttaa 
+käyttäjän profiilitiedot backendiin. Näistä tiedoista luodaan jwt token.
+6. jwt token lähetetään frontendiin ja tallennetaan siellä esim. sessionstorageen tai cookieihin
+jonka jälkeen sitä voidaan käyttää tunnistautumiseen.

@@ -1,0 +1,31 @@
+Tietokannan luonti atlakseen
+
+Tämä vaihe oli selitetty jo todella hyvin itse tehtävän
+annossa mutta pääpiirteittäin:
+1. Luodaan käyttäjätili atlakseen
+2. Luodaan klusteri käyttäjätilille
+3. Luodaan klusteriin mongo kanta ja siihen halutut kokoelmat
+4. Luodaan tunnukset jolla kantaan päästään käsiksi
+5. Sallitaan network asetuksista pääsy ip osoitteesta kantaan 
+josta sitä halutaan käyttäjätili
+6. Connect napista saadaan url osoite jonka avulla voidaan 
+sovelluksesta ottaa yhteys kantaan.
+
+Sovelluksen julkaisu herokussa:
+
+1. Luodaan tili herokuun
+2. Asennetaan heroku omalle tietokoneelle. macin tapauksessa
+brew paketinhallinta työkalulla.
+3. mennään terminaalilla kansioon jossa julkaistava sovellus
+sijaitsee ja annetaan komenta heroku create. Tämä valmistaa herokun
+siihen kun lähdekoodi ladataan sinne.
+4. Tässä vaiheessa on hyvä muistaa poistaa nodemon sovelluksesta koska
+herokussa node on valmiina asennettuna
+5. git push heroku main deployaa sovelluksen gitin avulla
+6. heroku open avaa sovelluksen selaimeen
+
+atlakseen luodun kannan yhdistäminen sovellukseen
+1. lisätään atlaksen network asetuksiin ip osoite 0.0.0.0/0 joka sallii yhteydet
+kaikista client sovelluksista
+2. lisätään herokun ympäristö muuttujiin mongo kannan osoite
+3. koodissa tähän muuttujaan pääsee käsiksi process.env.MONGODB_URL komennolla.

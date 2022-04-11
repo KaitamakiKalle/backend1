@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+    <p>
+      <a href="/sivu1">sivu1</a> | <a href="/sivu2">sivu2</a> |
+      <a href="/logout">logout</a>
+    </p>
+    <h1><%= title %></h1>
+    <p>Session id on <%= sessid %></p>
+    <!--Alle tuodaan students muuttujassa opiskelijat tietokannasta-->
+    <p>Opiskelijat:</p>
+    <!--Käydään opiskelijat forEach silmukalla läpi ja tulostetaan jokaisen nimi-->
+    <ul>
+      <% students.forEach((student) => { %>
+      <li>
+        <%= student.name %>
+        <!--Jokainen opiskelija saa alalistan arvosanoistaan
+        Arvosanat tulostetaan käymällä ne läpi forEach silmukalla-->
+        <ul>
+          <% student.grades.forEach((grade)=>{ %>
+          <li><%= grade.coursecode %> - <%= grade.grade %></li>
+          <% }) %>
+        </ul>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

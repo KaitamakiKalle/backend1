@@ -1,0 +1,4 @@
+api-gateway toimii yhdyskäytävänä mikropalveluiden ja asiakassovelluksen välillä.
+gatewayhin voidaan yhdistää useita mikropalveluita joiden kanssa se viestii yleensä
+TCP protokollaa hyödyntäen. Asiakas sovelluksen kanssa viestintä voi tapahtua esimerkiksi 
+http protokollalla.

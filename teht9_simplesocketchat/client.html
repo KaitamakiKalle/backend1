@@ -1,0 +1,44 @@
+<!-- Socket.io -client joka on tehty ilman mitään sovelluskehystä tai apukirjastoa-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>client</title>
+    <!-- socket.io-kirjasto löytyy node_modules kansiosta tällä polkumäärityksellä
+        se voitaisiin hakea myös webistä CDN:stä-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      //Luodaan clientin socket joka yhdistetään serveriin
+      window.onload = function () {
+        const welcome = document.getElementById('welcome');
+        const button = document.getElementById('button');
+        const socket = io.connect('http://localhost:3010');
+
+        socket.on('welcome', (data) => {
+          console.log(data);
+          welcome.innerHTML = 'Welcome to the game ' + data.name + '';
+        });
+        //Joka kerta kun 'message_to_client' -tapahtuma saapuu serveriltä
+        //laitetaan data diviin joka id on chat. Lisätään myös vanhat viestit perään
+
+        socket.on('message_to_client', (data) => {
+          document.getElementById('chat').innerHTML =
+            '<br>' + data.message + document.getElementById('chat').innerHTML;
+        });
+        button.onclick = function sendMessage() {
+          //otetaan teksti-inputin sisältö talteen
+          const contents = document.getElementById('message_input').value;
+          //emitoidaan tapahtuma 'message_to_server' jolla data lähtee avain-arvo parina
+          socket.emit('message_to_server', { message: contents });
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="welcome"></div>
+    <input type="number" id="message_input" />
+    <button id="button">send</button>
+    <!-- chattiviestit tulevat tähän-->
+
+    <div id="chat"></div>
+  </body>
+</html>

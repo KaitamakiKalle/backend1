@@ -1,0 +1,3 @@
+sum-microservice laskee sille lähetetyistä luvuista summan ja palauttaa sen.
+Tämä on siis mikropalvelu tai "pieni backend-sovellus" joka tuottaa tietyn toiminnallisuuden
+ja yhdistetään gatewayn avulla asiakassovellukseen tai muihin mikropalveluihin

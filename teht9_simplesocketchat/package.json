@@ -1,0 +1,16 @@
+{
+  "name": "simplesocketchat",
+  "version": "1.0.0",
+  "description": "very simple socket.io demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "tuito",
+  "license": "ISC",
+  "dependencies": {
+    "moniker": "^0.1.2",
+    "socket.io": "^4.4.1"
+  }
+}

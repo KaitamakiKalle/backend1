@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="d-flex mt-3 mb-3">Admin</div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+          <div class="form-group">
+              <label for="opiskelijanumero">#:</label>
+              <input type="text" class="form-control" id="opnro" name="opnro" [(ngModel)]="opnro" ngModel />
+              <label for="nimi">Nimi:</label>
+              <input type="text" class="form-control" name="nimi" [(ngModel)]="nimi" ngModel />
+              <label for="email">Email:</label>
+              <input type="text" class="form-control" name="email" [(ngModel)]="email" ngModel />
+              <label for="opintopisteet">Opintopisteet:</label>
+              <input type="text" class="form-control" name="opisteet" [(ngModel)]="opisteet" ngModel />
+              <input type="hidden" name="id" [(ngModel)]="id" ngModel />
+            </div>
+          <!-- Tässä näkyy oletuksena "luo uusi" -nappi. Kun käyttäjä painaa
+          muokkaa -linkkiä, vaihtuu tilalle "tallenna muokattu" -nappi ja
+          Sen jälkeen vaihtuu tilalle taas oletus-->
+          <button *ngIf="addnew" type="submit" class="btn btn-light">Luo uusi</button>
+          <button *ngIf="saveedited" type="submit" class="btn btn-light">Tallenna muokattu</button>
+      </form>
+  </div>
+  <div class="d-flex mt-3 mb-3"></div>
+  <div class="container-fluid">
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nimi</th>
+            <th>Email</th>
+            <th>Opintopisteet</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--*ngFor on looppidirektiivi-->
+          <tr *ngFor="let s of students">
+            <td>{{s.studentcode}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.email}}</td>
+            <td>{{s.studypoints}}</td>
+            <td><span id="del" class="btn" (click)="delete(s)">Poista</span></td>
+            <td><span id="upd" class="btn" (click)="update(s)">Muokkaa</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

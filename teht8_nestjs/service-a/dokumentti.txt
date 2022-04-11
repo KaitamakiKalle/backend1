@@ -1,0 +1,3 @@
+service-a vastaa pong saadessaan komennon ping. 
+Tämä on siis mikropalvelu tai "pieni backend-sovellus" joka tuottaa tietyn toiminnallisuuden
+ja joka yhdistetään gatewaylla asiakassovellukseen tai muihin mikropalveluihin 

@@ -1,0 +1,3 @@
+rocket-microservicen rooli on hakea jäljellä oleva aika seuraavan raketin lähtöön.
+Tämä on siis mikropalvelu joka tuottaa jonkin toiminnallisuuden ja se yhdistetään
+gatewaylla asiakasovellukseen tai muihin mikropalveluihin.

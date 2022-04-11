@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="d-flex mt-3 mb-3">Opiskelijat</div>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nimi</th>
+          <th>Email</th>
+          <th>Opintopisteet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--*ngFor on looppidirektiivi-->
+        <tr *ngFor="let s of students">
+          <td>{{s.studentcode}}</td>
+          <td>{{s.name}}</td>
+          <td>{{s.email}}</td>
+          <td>{{s.studypoints}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
